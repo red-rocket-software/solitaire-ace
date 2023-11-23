@@ -84,7 +84,7 @@ function BaseEmptySpots() {
     <div className={styles.baseEmptySpots} id='baseEmptySpots'>
       <Row gutter={6} className={styles.boardDeckRow} align='middle'>
         {/* Deck and Flipped piles */}
-        <CardSpot ref={deckRef}  offset={2} className={styles.deckCardSpot}>
+        <CardSpot ref={deckRef} className={styles.deckCardSpot}>
           {/* Button to reset deck */}
           <Button
             className={`${styles.redoDeckButton} ${
@@ -104,7 +104,7 @@ function BaseEmptySpots() {
       </Row>
       <Row gutter={6} align='middle' className={styles.testColumns}>
         {/* Game Columns */}
-        <CardSpot offset={2} />
+        <CardSpot />
         <CardSpot />
         <CardSpot />
         <CardSpot />
