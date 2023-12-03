@@ -36,6 +36,7 @@
 .cardContainer {
   max-width: 100%;
   max-height: 100%;
+  transition: 0.1s
   /* margin-top: -1px; */
 }
 
