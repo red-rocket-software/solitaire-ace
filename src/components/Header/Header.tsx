@@ -15,6 +15,8 @@ import { RootReducerState } from '@/global';
 import { GameModeTypes } from '@/redux/gameConfig/gameConfig.types';
 import { useRouter } from 'next/navigation';
 import useTimer from '@/hooks/useTimer';
+import Link from 'next/link';
+
 const Header = () => {
   const router = useRouter();
   const { gameMode, gameMoves } = useSelector(
@@ -62,35 +64,43 @@ const Header = () => {
     <header className={styles.header}>
       <div className={styles.innerWrapper}>
         <div className={styles.logoDesctopWrapper}>
-          <Image
-            src='/images/logo.png'
-            width={120}
-            height={31}
-            alt='logo'
-            style={{ marginRight: '54px' }}
-            className={styles.logo}
-          />
+          <Link href='/'>
+            <Image
+              src='/images/logo.png'
+              width={120}
+              height={31}
+              alt='logo'
+              style={{ marginRight: '45px' }}
+              className={styles.logo}
+            />
+          </Link>
         </div>
         <div className={styles.logoMobileWrapper}>
-          <Image
-            src='/images/logo.png'
-            width={100}
-            height={30}
-            alt='logo'
-            style={{ marginRight: '11px' }}
-            className={styles.logo}
-          />
+          <Link href='/'>
+            <Image
+              src='/images/logo.png'
+              width={100}
+              height={30}
+              alt='logo'
+              style={{ marginRight: '11px' }}
+              className={styles.logo}
+            />
+          </Link>
         </div>
         <div className={styles.cards}>
-          <TurnOne
+          <div
+            className={styles.cardWrapper}
             onClick={() => onChangeGameMode('default')}
-            fill={getCardModeColor('default')}
-          />
+          >
+            <TurnOne fill={getCardModeColor('default')} />
+          </div>
           <div className={styles.border} />
-          <TurnThree
+          <div
+            className={styles.cardWrapper}
             onClick={() => onChangeGameMode('turnThree')}
-            fill={getCardModeColor('turnThree')}
-          />
+          >
+            <TurnThree fill={getCardModeColor('turnThree')} />
+          </div>
         </div>
         <div className={styles.newButtonWrapper}>
           <NewButton />
@@ -99,17 +109,17 @@ const Header = () => {
           <GamePlayInfo seconds={seconds} hours={hours} minutes={minutes} />
           <RestartButton />
           <div
-            style={{ margin: '0 10px', height: '28.4px' }}
+            style={{ margin: '0 3.5px', height: '28.4px' }}
             className={styles.border}
           />
           <UndoButton />
           <div
-            style={{ margin: '0 10px', height: '28.4px' }}
+            style={{ margin: '0 3.5px', height: '28.4px' }}
             className={styles.border}
           />
           <PauseButton />
           <div
-            style={{ margin: '0 10px', height: '28.4px' }}
+            style={{ margin: '0 3.5px', height: '28.4px' }}
             className={styles.border}
           />
           <HintButton />
@@ -120,17 +130,17 @@ const Header = () => {
         <GamePlayInfo seconds={seconds} hours={hours} minutes={minutes} />
         <RestartButton />
         <div
-          style={{ margin: '0 10px', height: '28.4px' }}
+          style={{ margin: '0 3.5px', height: '28.4px' }}
           className={styles.border}
         />
         <UndoButton />
         <div
-          style={{ margin: '0 10px', height: '28.4px' }}
+          style={{ margin: '0 3.5px', height: '28.4px' }}
           className={styles.border}
         />
         <PauseButton />
         <div
-          style={{ margin: '0 10px', height: '28.4px' }}
+          style={{ margin: '0 3.5px', height: '28.4px' }}
           className={styles.border}
         />
         <HintButton />

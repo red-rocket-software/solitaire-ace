@@ -83,17 +83,30 @@
 
 /*  CardImage */
 .cardDefault {
-  border: 1.579px solid #000500;
+  border: var(--cardMobileBorderWidth) solid #000500;
   border-radius: var(--cardBorderRadiusOut);
   cursor: pointer;
 
   height: 100%;
 }
 
+@media screen and (width >= 768px) {
+  .cardDefault {
+    border: var(--cardMediumBorderWidth) solid #000500;
+  }
+}
+
+@media screen and (width >= 1024px) {
+  .cardDefault {
+    border: var(--cardBorderWidth) solid #000500;
+  }
+}
+
 .cardImage {
   width: 100%;
   height: 100%;
   border-radius: var(--cardBorderRadiusIn);
+  -webkit-touch-callout: none; /* disabled ios img preview */
 }
 
 /* CardSpot */
@@ -102,7 +115,7 @@
 }
 
 .cardSpot {
-  border: var(--cardBorderWidth) solid #000;
+  border: var(--cardMobileBorderWidth) solid #000;
   border-radius: var(--cardBorderRadiusOut);
   background: #6e4197;
 }
@@ -162,5 +175,13 @@
   }
   to {
     margin-left: 0px;
+  }
+}
+
+@media screen and (width >= 1024px) {
+  .cardSpot {
+    border: var(--cardBorderWidth) solid #000;
+    border-radius: var(--cardBorderRadiusOut);
+    background: #6e4197;
   }
 }

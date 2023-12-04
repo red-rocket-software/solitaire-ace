@@ -31,6 +31,7 @@ export default function RootLayout({
       <head>
         <Script
           async
+          strategy='lazyOnload'
           type='text/javascript'
           src='https://sm1.selectmedia.asia/cdn/tags/tag_b2c437e2-496c-4159-ab0a-61c48f90e12b.js'
         ></Script>

@@ -1,24 +1,26 @@
 :root {
   /*  COLORS */
---cardColor: #8db5aa;
---primaryColor: #a52d2d;
---secondaryColor: rgba(255, 255, 255, 0.1);
---darkSecondaryColor: rgba(0, 0, 0, 0.2);
---buttonActiveColor: rgba(0, 0, 0, 0.6);
---hoverElemColor: rgba(0, 0, 0, 0.4);
+  --cardColor: #8db5aa;
+  --primaryColor: #a52d2d;
+  --secondaryColor: rgba(255, 255, 255, 0.1);
+  --darkSecondaryColor: rgba(0, 0, 0, 0.2);
+  --buttonActiveColor: rgba(0, 0, 0, 0.6);
+  --hoverElemColor: rgba(0, 0, 0, 0.4);
 
-/*  SIZES */
---cardBorderRadiusOut: 8%;
---cardBorderRadiusIn: 7%;
---cardBorderWidth: 0.15em;
---limitVertical: 20px;
---limitHorizontal: 40px;
+  /*  SIZES */
+  --cardBorderRadiusOut: 8%;
+  --cardBorderRadiusIn: 7%;
+  --cardBorderWidth: 0.15em;
+  --cardMobileBorderWidth: 0.05em;
+  --cardMediumBorderWidth: 0.1em;
+  --limitVertical: 20px;
+  --limitHorizontal: 40px;
 
-/* ANIMATIONS */
---card-flip-transition-time: 0.3s;
+  /* ANIMATIONS */
+  --card-flip-transition-time: 0.3s;
 
-/* --game-container-width: calc(100% - 325px); */
---game-container-width: 70%; /* 1280px */
+  /* --game-container-width: calc(100% - 325px); */
+  --game-container-width: 70%; /* 1280px */
 }
 
 * {
@@ -32,7 +34,7 @@ body {
   max-width: 100vw;
   overflow-x: hidden;
   height: 100%;
-  background: linear-gradient(0deg, #784AA3 0%, #784AA3 100%), #FFF;
+  background: linear-gradient(0deg, #784aa3 0%, #784aa3 100%), #fff;
 }
 
 a {

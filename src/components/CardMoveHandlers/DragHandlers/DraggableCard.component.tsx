@@ -35,7 +35,7 @@ function DraggableCard({
   index = 0,
   shake,
   children,
-  className
+  className,
 }: PropsWithChildren<DraggableCardProps>) {
   const dispatch = useDispatch();
 
@@ -54,6 +54,16 @@ function DraggableCard({
     collect: (monitor: ExplicitAny) => ({
       isDragging: monitor.isDragging(),
     }),
+    end: (_, monitor) => {
+      console.log('monitor.getDropResult()', monitor.getDropResult());
+      if (!monitor.getDropResult()) {
+        dispatch(goalActions.resetCardDragging());
+        // then reset the values at the deck redux
+        dispatch(deckActions.resetCardDragging());
+        // then reset the values at the deck redux
+        dispatch(columnsActions.resetCardDragging());
+      }
+    },
   });
 
   // function called when a card starts being dragged
@@ -95,7 +105,9 @@ function DraggableCard({
       ref={drag}
       cardId={card.id}
       onDoubleClick={onDoubleClick}
-      cardContainerClassName={`${index > 0 ? styles.cardContainerColumns : ''} ${className || ''}`}
+      cardContainerClassName={`${
+        index > 0 ? styles.cardContainerColumns : ''
+      } ${className || ''}`}
       shake={shake}
     >
       {children || (

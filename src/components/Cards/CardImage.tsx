@@ -30,6 +30,7 @@ const CardImage = ({
         width={200}
         height={300}
         priority
+        draggable={false}
         className={styles.cardImage}
         src={`/images/${directory}/${image}`}
         alt=''

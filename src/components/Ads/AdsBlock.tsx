@@ -19,7 +19,6 @@ const AdTag = (props: AdTagProps) => {
 const AdsBlock = () => {
   return (
     <>
-      <AdTag className={styles.adUnitBig} />
       <AdTag
         className={styles.adUnitSm}
         id={'tag_b2c437e2-496c-4159-ab0a-61c48f90e12b'}
