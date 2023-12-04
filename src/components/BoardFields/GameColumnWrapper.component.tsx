@@ -41,12 +41,13 @@ function GameColumnWrapper() {
     return 10;
   }, [xxxs, xxs, xs, sm, md, lg, xl, xxl, xxxl]);
 
-  //Specify gameBoard by screen height 
+  //Specify gameBoard by screen height
   const boardMaxWidth = useMemo((): number => {
     if (!height) {
       return 100;
     }
-    if (height < 400) {
+    //was 400px
+    if (height < 450) {
       return 50;
     }
     if (height < 600) {
@@ -100,7 +101,12 @@ function GameColumnWrapper() {
     }
     const parentRect = parentElem.getBoundingClientRect();
     //Set to fit in fullscreen with margin of 20px
-    const newParentHeight = height - parentRect.top - 20;
+    let newParentHeight = height - parentRect.top - 20;
+
+    //TODO for mobile advertisement
+    if ((width || 0) < (height || 0) && xxs) {
+      newParentHeight += -200;
+    }
     parentElem.style.height = `${newParentHeight}px`;
 
     const boardContainer = document.getElementById('game-board-container');

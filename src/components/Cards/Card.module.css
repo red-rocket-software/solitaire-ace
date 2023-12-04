@@ -120,6 +120,7 @@
   animation: threeCardAnimationPrevious 0.1s forwards ease-in;
 }
 
+/*TODO animation forward*/
 @keyframes threeCardAnimationFirst {
   from {
     margin-left: 0px;
@@ -145,6 +146,7 @@
   animation: threeCardAnimationPreviousUndo 0.2s forwards;
 }
 
+/*TODO animation backwards*/
 @keyframes threeCardAnimationFirstUndo {
   from {
     margin-left: 40px;
