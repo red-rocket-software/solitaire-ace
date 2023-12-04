@@ -29,11 +29,25 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 73.7px;
+  width: 90px;
   height: 24px;
   margin-right: 0;
 
   margin-left: auto;
+}
+
+.cardWrapper {
+  padding: 6px 7px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background 0.3s;
+  cursor: pointer;
+}
+
+.cardWrapper:hover {
+  background: rgba(0, 0, 0, 0.25);
 }
 
 .desktopInfoButton {
@@ -76,13 +90,17 @@
   }
 
   .cards {
-    width: 73.7px;
+    width: 95px;
     height: 24px;
-    margin-right: 68px;
-  
+    margin-right: 55px;
+
     margin-left: initial;
   }
-  
+
+  .cardWrapper {
+    padding: 9px 10px;
+  }
+
   .logoDesctopWrapper {
     display: block;
   }
@@ -94,17 +112,17 @@
   .logo {
     order: initial;
   }
-  
+
   .newButtonWrapper {
     order: initial;
   }
-  
+
   .cards {
     order: initial;
   }
 
   .header {
-    height: 57px; 
+    height: 57px;
   }
 
   .innerWrapper {
@@ -116,4 +134,3 @@
     display: none;
   }
 }
-  

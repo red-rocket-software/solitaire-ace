@@ -20,10 +20,8 @@ const CustomHTML5toTouch = {
       id: 'touch',
       backend: TouchBackend,
       // Note that you can call your backends with options
-      options: { enableMouseEvents: true },
+      options: { enableMouseEvents: true, delayTouchStart: 0 },
       transition: TouchTransition,
-      // will not dispatch a duplicate `touchstart` event when this backend is activated
-      skipDispatchOnTransition: true,
     },
   ],
 };
