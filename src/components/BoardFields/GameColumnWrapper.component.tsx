@@ -28,17 +28,17 @@ function GameColumnWrapper() {
   const xxxl = useMediaQuery('(width >= 2256px)');
 
   const getMarginByMedia = useCallback((): number => {
-    if (xxxl) return 55;
+    if (xxxl) return 60;
     if (xxl) return 50;
     if (xl) return 45;
     if (lg) return 40;
     if (md) return 35;
     if (sm) return 30;
-    if (xs) return 25;
-    if (xxs) return 20;
-    if (xxxs) return 15;
+    if (xs) return 30;
+    if (xxs) return 25;
+    if (xxxs) return 20;
 
-    return 10;
+    return 15;
   }, [xxxs, xxs, xs, sm, md, lg, xl, xxl, xxxl]);
 
   //Specify gameBoard by screen height
@@ -104,15 +104,15 @@ function GameColumnWrapper() {
     let newParentHeight = height - parentRect.top - 20;
 
     //TODO for mobile advertisement
-    if ((width || 0) < (height || 0) && xxs) {
-      newParentHeight += -200;
-    }
+    // if ((width || 0) < (height || 0) && xxs) {
+    //   newParentHeight += -200;
+    // }
     parentElem.style.height = `${newParentHeight}px`;
 
-    const boardContainer = document.getElementById('game-board-container');
-    if (boardContainer) {
-      boardContainer.style.maxWidth = `${boardMaxWidth}%`;
-    }
+    // const boardContainer = document.getElementById('game-board-container');
+    // if (boardContainer) {
+    //   boardContainer.style.maxWidth = `${boardMaxWidth}%`;
+    // }
 
     //calculate new margins to all columnsPiles to fit in viewport
     for (const column in columns) {

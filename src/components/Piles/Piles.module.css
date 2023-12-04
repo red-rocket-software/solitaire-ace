@@ -40,3 +40,7 @@
 .flippedPile {
   /* margin-top: -200px; */
 }
+
+.deckCardDragging {
+  opacity: 0;
+}

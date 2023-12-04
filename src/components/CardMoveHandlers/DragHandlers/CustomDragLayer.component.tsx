@@ -37,17 +37,17 @@ function CustomDragLayer() {
   const xxxl = useMediaQuery('(width >= 2256px)');
 
   const getMarginByMedia = useCallback((): number => {
-    if (xxxl) return 55;
+    if (xxxl) return 60;
     if (xxl) return 50;
     if (xl) return 45;
     if (lg) return 40;
     if (md) return 35;
     if (sm) return 30;
-    if (xs) return 25;
-    if (xxs) return 20;
-    if (xxxs) return 15;
+    if (xs) return 30;
+    if (xxs) return 25;
+    if (xxxs) return 20;
 
-    return 10;
+    return 15;
   }, [xxxs, xxs, xs, sm, md, lg, xl, xxl, xxxl]);
 
   // get the cards that are dragging from the redux (can be from the deck or form the columns)

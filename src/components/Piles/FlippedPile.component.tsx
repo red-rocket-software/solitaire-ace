@@ -24,6 +24,7 @@ function FlippedPile() {
     startUndoAnimation,
     translationX,
     gameMode,
+    cardDragging,
   } = useSelector(({ Deck, GameBoard, GameConfig }: RootReducerState) => {
     const gameHints = GameBoard.gameHints;
     const lastIndex = gameHints.length - 1;
@@ -34,6 +35,7 @@ function FlippedPile() {
       startUndoAnimation: Deck.startUndoAnimation,
       translationX: -Deck.translationX,
       gameMode: GameConfig.gameMode as GameModeTypes,
+      cardDragging: Deck.cardDragging || [],
     };
   });
 
@@ -74,6 +76,8 @@ function FlippedPile() {
           return cardStyles.lastInRow;
         }
       };
+      const hideDeckCard = cardDragging.includes(card);
+
       return (
         <DoubleClickHandler
           key={card.id}
@@ -97,12 +101,20 @@ function FlippedPile() {
               <CardImage
                 image='bg-purple.jpg'
                 directory='CardsBackPatterns'
-                additionalClassName={cardStyles.cardFlipFront}
+                additionalClassName={
+                  hideDeckCard
+                    ? ` ${styles.deckCardDragging}`
+                    : cardStyles.cardFlipFront
+                }
               />
               <CardImage
                 image={card.image}
                 directory='CardsFaces'
-                additionalClassName={cardStyles.cardFlipBack}
+                additionalClassName={
+                  hideDeckCard
+                    ? ` ${styles.deckCardDragging}`
+                    : cardStyles.cardFlipBack
+                }
               />
             </div>
           </DraggableCard>

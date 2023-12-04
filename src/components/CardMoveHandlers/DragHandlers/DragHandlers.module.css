@@ -1,23 +1,23 @@
 /* CustomDragLayer */
 .cardContainerColumns {
-  margin-top: 10px;
+  margin-top: 15px;
 }
 
 @media screen and (width >= 400px) {
-  .cardContainerColumns {
-    margin-top: 15px;
-  }
-}
-
-@media screen and (width >= 600px) {
   .cardContainerColumns {
     margin-top: 20px;
   }
 }
 
-@media screen and (width >= 800px) {
+@media screen and (width >= 600px) {
   .cardContainerColumns {
     margin-top: 25px;
+  }
+}
+
+@media screen and (width >= 800px) {
+  .cardContainerColumns {
+    margin-top: 30px;
   }
 }
 
@@ -53,10 +53,9 @@
 
 @media screen and (width >= 2256px) {
   .cardContainerColumns {
-    margin-top: 55px;
+    margin-top: 60px;
   }
 }
-
 
 /* Deck and Flipped Piles */
 .deckPile {
@@ -70,17 +69,29 @@
 }
 
 .dragLayer {
-    position: fixed;
-    pointer-events: none;
-    z-index: 100;
-    left: 0;
-    top: 0;
-    width: var(--game-container-width);
-    height: 100%;
-  }
+  position: fixed;
+  pointer-events: none;
+  z-index: 100;
+  left: 0;
+  top: 0;
+  width: var(--game-container-width);
+  height: 100%;
+}
 
-  /* DraggableCard */
-
-  .cardIsDragging {
-    opacity: 0;
+@media (max-height: 450px) {
+  .dragLayer {
+    width: 50%;
   }
+}
+
+@media (min-height: 450px) and (max-height: 600px) {
+  .dragLayer {
+    width: 75%;
+  }
+}
+
+/* DraggableCard */
+
+.cardIsDragging {
+  opacity: 0;
+}
