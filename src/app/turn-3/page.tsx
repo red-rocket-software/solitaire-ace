@@ -17,7 +17,7 @@ export default function Home() {
   return (
     <main>
       <div className={styles.boardWithAdsContainer}>
-        <div className={styles.boardContainer}>
+        <div id="game-board-container" className={styles.boardContainer}>
           <GameBoard />
         </div>
         <div className={styles.adsContainer}>

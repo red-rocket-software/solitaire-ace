@@ -10,9 +10,9 @@
   /*  SIZES */
   --cardBorderRadiusOut: 8%;
   --cardBorderRadiusIn: 7%;
-  --cardBorderWidth: 0.15em;
-  --cardMobileBorderWidth: 0.05em;
-  --cardMediumBorderWidth: 0.1em;
+  --cardBorderWidth: 0.15rem;
+  --cardMobileBorderWidth: 0.05rem;
+  --cardMediumBorderWidth: 0.1rem;
   --limitVertical: 20px;
   --limitHorizontal: 40px;
 

@@ -283,6 +283,18 @@
   }
 }
 
+@media (max-height: 450px) {
+  .boardContainer {
+    width: 50%;
+  }
+}
+
+@media (min-height: 450px) and (max-height: 600px) {
+  .boardContainer {
+    width: 75%;
+  }
+}
+
 @media (max-height: 650px) {
   .adUnitBig {
     height: calc(100vh - 90px);

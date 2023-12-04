@@ -21,13 +21,13 @@ export const rootReducer = {
 
 const combinedRootReducer = combineReducers(rootReducer);
 
-const loggerMiddleware = createLogger({
-  // ...options
-  diff: true
-})
+// const loggerMiddleware = createLogger({
+//   // ...options
+//   diff: true
+// })
 
 export const store = createStore(combinedRootReducer,  applyMiddleware(
-  loggerMiddleware
+  // loggerMiddleware
 ));
 
 export type RootState = ReturnType<typeof store.getState>;
