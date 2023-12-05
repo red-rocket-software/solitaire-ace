@@ -1,5 +1,5 @@
 .header {
-  height: 90px;
+  height: 84px;
   background: #462b5f;
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
@@ -8,7 +8,7 @@
 .innerWrapper {
   display: flex;
   align-items: center;
-  padding: 7px 10px;
+  padding: 3px 10px;
 }
 
 .border {
@@ -44,6 +44,7 @@
   align-items: center;
   transition: background 0.3s;
   cursor: pointer;
+  scale: 0.8;
 }
 
 .cardWrapper:hover {
@@ -99,6 +100,7 @@
 
   .cardWrapper {
     padding: 9px 10px;
+    scale: initial;
   }
 
   .logoDesctopWrapper {

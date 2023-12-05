@@ -101,11 +101,11 @@ const Header = () => {
           <div className={styles.logoMobileWrapper}>
             <Link href='/'>
               <Image
-                src='/images/logo.png'
-                width={100}
-                height={30}
+                src='/images/logo-mobile.png'
+                width={88}
+                height={23}
                 alt='logo'
-                style={{ marginRight: '11px' }}
+                style={{ marginRight: '4px' }}
                 className={styles.logo}
               />
             </Link>
