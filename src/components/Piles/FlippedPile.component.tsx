@@ -69,10 +69,10 @@ function FlippedPile() {
           }
           return;
         }
-        if ((flippedPile.length - 1 - index) % 3 === 1) {
+        if (flippedPile.length - 2 === index) {
           return cardStyles.prevInRow;
         }
-        if ((flippedPile.length - 1 - index) % 3 === 0) {
+        if (flippedPile.length - 1 === index) {
           return cardStyles.lastInRow;
         }
       };
