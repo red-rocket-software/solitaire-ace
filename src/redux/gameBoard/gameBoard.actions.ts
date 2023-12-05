@@ -55,6 +55,9 @@ const addGameHint = (source?: string, target?: string) => ({
   target
 });
 
+const clearGameHint = () => ({
+  type: GameBoardActionTypes.CLEAR_GAME_HINT,
+})
 // ********************************************************
 // GAME MOVES' HISTORY ACTIONS
 
@@ -95,6 +98,7 @@ const actionsCreators = Object.freeze({
   showingConfirm,
   addGameHint,
   addGameMove,
+  clearGameHint,
   removeGameMove,
   reAddGameMove
 });

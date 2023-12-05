@@ -36,23 +36,29 @@ function GameBoard() {
     goal3Pile,
     goal4Pile,
     gameMoves,
-  } = useSelector(({ GameBoard, Goal, User, Pages }: RootReducerState) => ({
-    gameMoves: GameBoard.gameMoves,
-    gameOver: Goal.gameOver,
-    deckPile: GameBoard.deckPile,
-    flippedPile: GameBoard.flippedPile,
-    column1Pile: GameBoard.column1Pile,
-    column2Pile: GameBoard.column2Pile,
-    column3Pile: GameBoard.column3Pile,
-    column4Pile: GameBoard.column4Pile,
-    column5Pile: GameBoard.column5Pile,
-    column6Pile: GameBoard.column6Pile,
-    column7Pile: GameBoard.column7Pile,
-    goal1Pile: GameBoard.goal1Pile,
-    goal2Pile: GameBoard.goal2Pile,
-    goal3Pile: GameBoard.goal3Pile,
-    goal4Pile: GameBoard.goal4Pile,
-  }));
+    lastHint,
+  } = useSelector(({ GameBoard, Goal, User, Pages }: RootReducerState) => {
+    const gameHints = GameBoard.gameHints;
+    const lastIndex = gameHints.length - 1;
+    return {
+      gameMoves: GameBoard.gameMoves,
+      gameOver: Goal.gameOver,
+      deckPile: GameBoard.deckPile,
+      flippedPile: GameBoard.flippedPile,
+      column1Pile: GameBoard.column1Pile,
+      column2Pile: GameBoard.column2Pile,
+      column3Pile: GameBoard.column3Pile,
+      column4Pile: GameBoard.column4Pile,
+      column5Pile: GameBoard.column5Pile,
+      column6Pile: GameBoard.column6Pile,
+      column7Pile: GameBoard.column7Pile,
+      goal1Pile: GameBoard.goal1Pile,
+      goal2Pile: GameBoard.goal2Pile,
+      goal3Pile: GameBoard.goal3Pile,
+      goal4Pile: GameBoard.goal4Pile,
+      lastHint: lastIndex >= 0 ? gameHints[lastIndex] : undefined,
+    };
+  });
 
   // ---------------------------------------------------------
   // Create Game
@@ -105,6 +111,17 @@ function GameBoard() {
     );
   };
   useEffect(setNewGamePiles, [deckPile]);
+
+  useEffect(() => {
+    if (!lastHint) {
+      return;
+    }
+    const delay = 2000;
+    const timeoutId = setTimeout(() => {
+      dispatch(gameBoardActions.clearGameHint());
+    }, delay);
+    return () => clearTimeout(timeoutId);
+  }, [lastHint]);
 
   // ---------------------------------------------------------
   return (

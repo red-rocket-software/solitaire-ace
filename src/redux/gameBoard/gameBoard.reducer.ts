@@ -132,6 +132,9 @@ const gameBoardReducer = (
       );
       return { ...state, ...addGameHintResult };
 
+    case GameBoardActionTypes.CLEAR_GAME_HINT:
+      return { ...state, gameHints: [] };
+
     // ********************************************************
     // GAME MOVES' HISTORY ACTIONS
 
