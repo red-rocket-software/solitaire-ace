@@ -6,7 +6,7 @@
   display: flex;
   align-items: center;
   padding: 5px 12px;
-  margin-right: 20px;
+  margin-right: 2px;
   margin-left: 3px;
 }
 
@@ -28,18 +28,24 @@
 }
 
 .border {
-    width: 2px;
-    height: 100%;
-    background: #1E1E1E;
-    margin: 0 12px;
+  width: 2px;
+  height: 100%;
+  background: #1e1e1e;
+  margin: 0 12px;
 }
 
-@media screen and (width >= 1024px) { 
+@media screen and (width >= 360px) {
+  .wrapper {
+    margin-right: 20px;
+  }
+}
+
+@media screen and (width >= 1024px) {
   .wrapper {
     width: 255.35px;
-  height: 42.674px;
-  padding: 5px 20px;
-  margin-left: initial;
+    height: 42.674px;
+    padding: 5px 20px;
+    margin-left: initial;
   }
 
   .heading {
