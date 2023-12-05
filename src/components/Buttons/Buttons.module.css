@@ -40,7 +40,7 @@
   color: inherit;
   background-color: transparent;
   cursor: pointer;
-  padding: 8px 6px;
+  padding: 4px 3px;
   color: #cbcdd4;
   font-size: 16.343px;
   font-weight: 600;
@@ -48,6 +48,7 @@
   align-items: center;
   transition: background 0.3s;
   border-radius: 10px;
+  scale: 0.7;
 }
 
 .actionButton:hover {
@@ -60,6 +61,13 @@
 
 .iconButtonDisabled {
   pointer-events: none;
+}
+
+@media screen and (width >= 360px) {
+  .actionButton {
+    scale: 1;
+    padding: 8px 6px;
+  }
 }
 
 @media screen and (width >= 1024px) {
