@@ -54,6 +54,7 @@
 }
 
 .shakeAnimation {
+  height: 0px;
   animation: shake 0.5s;
   animation-iteration-count: infinite;
 }

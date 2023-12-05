@@ -29,14 +29,17 @@ const CardFrame = (
       ref={ref}
       id={cardId ? `card-${cardId}` : undefined}
       className={`${styles.cardContainer} ${cardContainerClassName} ${
-        shake ? styles.shakeAnimation : ''
-      } ${increase ? styles.increaseAnimation : ''}`}
+        increase ? styles.increaseAnimation : ''
+      }`}
       onDoubleClick={() => onDoubleClick !== undefined && onDoubleClick()}
     >
-      {/* eslint-disable-next-line react/forbid-dom-props */}
-      <div className={styles.cardAspectRatio}>
-        <div className={`${styles.cardContent} ${cardContentClassName}`}>
-          {children}
+      <div className={`${shake ? styles.shakeAnimation : ''}`}>
+        {/* eslint-disable-next-line react/forbid-dom-props */}
+
+        <div className={styles.cardAspectRatio}>
+          <div className={`${styles.cardContent} ${cardContentClassName}`}>
+            {children}
+          </div>
         </div>
       </div>
     </div>

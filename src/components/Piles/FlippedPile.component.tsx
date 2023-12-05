@@ -46,7 +46,10 @@ function FlippedPile() {
   const getCards = () => {
     return flippedPile?.map((card: CardType, index: number) => {
       const handler = new DeckDoubleClickHandler(dispatch, card);
-      const shake = lastHint && lastHint.source === 'flippedPile';
+      const shake =
+        lastHint &&
+        (index === flippedPile.length - 1) &&
+        lastHint.source === 'flippedPile';
       const isUndoItemForAnimation = () => {
         if (gameMode === 'turnThree') {
           return index >= flippedPile.length - 3 || deckPile.length === 0;
