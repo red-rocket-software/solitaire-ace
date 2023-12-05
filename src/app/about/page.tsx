@@ -3,10 +3,13 @@ import About from '@/components/About/About';
 
 export default function AboutPage() {
   return (
-    <main>
-      <div className={styles.container}>
-        <About />
-      </div>
-    </main>
+    <div
+      className={styles.container}
+      style={{
+        maxWidth: '818px',
+      }}
+    >
+      <About />
+    </div>
   );
 }

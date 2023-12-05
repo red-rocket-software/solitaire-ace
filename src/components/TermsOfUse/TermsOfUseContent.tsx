@@ -54,10 +54,8 @@ const TermsOfUseContent = () => {
           from your use or inability to use the website.
         </li>
         <li>
-          Limitation of Liability: You expressly understand and agree that
-          SolitaireAce.com shall not be liable for any direct, indirect,
-          incidental, special, consequential, or exemplary damages resulting
-          from your use or inability to use the website.
+          Governing Law These Terms of Use shall be governed by and construed by
+          the laws of the USA
         </li>
       </ol>
       <p className={styles.text}>

@@ -1,142 +1,256 @@
 import styles from '@/app/typography.module.css';
-import Link from 'next/link';
+import About1 from '@/../public/images/About/about-1.png';
+import About2 from '@/../public/images/About/about-2.png';
+import About3 from '@/../public/images/About/about-3.png';
+import About4 from '@/../public/images/About/about-4.png';
+import About5 from '@/../public/images/About/about-5.png';
+import Image from 'next/image';
 
 const GameInfo = () => {
   return (
-    <div className={styles.container}>
-      <h1 className={styles.heading2}>Play Solitaire online - for free!</h1>
+    <div className={styles.container} style={{ maxWidth: '856px' }}>
+      <h1
+        className={styles.heading2}
+        style={{
+          fontSize: '1.875rem',
+        }}
+      >
+        How to Play Solitaire: A Beginner's Guide
+      </h1>
       <p className={styles.text}>&nbsp;</p>
       <p className={styles.text}>
-        Start playing unlimited games of online Solitaire Turn 3. Use hints and
-        undos to help progress though that game. No download or email
-        registration is required.
+        Solitaire is a term for a game that covers various single-player card
+        games. This short guide will help you understand the basic & quick rules
+        and strategies of playing Solitaire.
       </p>
       <p className={styles.text}>&nbsp;</p>
-      <p className={styles.text}>What is Turn 3 Solitaire?</p>
-      <ul className={styles.list}>
-        <li>
-          What personally identifiable information is collected from you through
-          the website, how it is used and with whom it may be shared.
-        </li>
-        <li>
-          What choices are available to you regarding the use of your data.
-        </li>
-        <li>
-          The security procedures in place to protect the misuse of your
-          information.
-        </li>
-        <li>How you can correct any inaccuracies in the information.</li>
-      </ul>
+      <h2
+        className={styles.text}
+        style={{
+          fontWeight: 700,
+        }}
+      >
+        The objective of the Game
+      </h2>
       <p className={styles.text}>
-        Information Collection, Use, and SharingWe are the sole owners of the
-        information collected on this site. We will not sell or rent this
-        information to anyone.We partner with Google Analytics to monitor the
-        traffic that visits this website.You can learn how Google uses this
-        information by visiting: &nbsp;
-        <Link
-          className={styles.link}
-          target='_blank'
-          rel='noopener noreferrer'
-          href='https://policies.google.com/?hl=en'
-        >
-          https://policies.google.com/?hl=en
-        </Link>
-        .This information is used to better manage the website. This information
-        is sometimes shared with various partners including our ad
-        parteners.Unless you ask us not to, we may contact you via email in the
-        future. We have never direct e-mailed our users before. We've only
-        replyed to e-mails sent by our users.Our advertising partners may use
-        cookies to show you interest based and non-interest based advertising.
-        You may opt-out of interest based advertising here:&nbsp;
-        <Link
-          className={styles.link}
-          target='_blank'
-          rel='noopener noreferrer'
-          href='http://optout.networkadvertising.org/?c=1#!/'
-        >
-          http://optout.networkadvertising.org/?c=1#!/
-        </Link>
-        .We partner with Freestar to show advertising on this website.You can
-        learn about Freestar's data policies and opt-out of interest based
-        advertising here:&nbsp;
-        <Link
-          className={styles.link}
-          target='_blank'
-          rel='noopener noreferrer'
-          href='https://freestar.io/data-policy/#'
-        >
-          https://freestar.io/data-policy/#
-        </Link>
-        .
-      </p>
-      <p className={styles.text}>
-        Cookies. We use "cookies" on this site. A cookie is a piece of data
-        stored on a site visitor’s hard drive to help us improve your access to
-        our site and identify repeat visitors to our site. For instance, when we
-        use a cookie to identify you, we can restore your game options and show
-        you your game statistics from previous visits. Cookies can also enable
-        us to track and target the interests of our users to enhance the
-        experience on our site. This information is never shared with anyone
-        else.Some of our partners may use cookies on our site (for example,
-        advertisers). However, we have no access to or control over these
-        cookies.
-      </p>
-      <p className={styles.text}>
-        Your Access and Control Over Information:You may opt out of any future
-        contacts from us at any time. You can do the following at any time by
-        contacting us via the email address given on our website:
-      </p>
-      <ul className={styles.list}>
-        <li>See what data we have about you, if any.</li>
-        <li>Change/correct any data we have about you.</li>
-        <li>Have us delete any data we have about you.</li>
-        <li>Express any concern you have about our use of your data.</li>
-      </ul>
-      <p className={styles.text}>
-        Links. This website contains links to other sites. Please be aware that
-        we are not responsible for the content or privacy practices of such
-        other sites. We encourage our users to be aware when they leave our site
-        and to read the privacy statements of any other site that collects
-        personally identifiable information.
-      </p>
-      <p className={styles.text}>
-        If you feel that we are not abiding by our privacy practices, or have
-        any questions or concerns, please contact us immediately.
+        The aim is to organise and manage all cards into four foundation piles
+        in ascending order by suit, starting from Ace to King.
       </p>
       <p className={styles.text}>&nbsp;</p>
-      <p className={styles.text}>Updates</p>
-      <p className={styles.text}>
-        Our Privacy Policy may change from time to time and all the updates will
-        be posted on this page.
-      </p>
+      <h3
+        className={styles.text}
+        style={{
+          fontWeight: 700,
+        }}
+      >
+        Game Setup
+      </h3>
       <ul className={styles.list}>
         <li>
-          FEB 06, 2019: Major update to include language as to what data is
-          collected and why, what control users have over said data, how the
-          data is shared and with whome and and included several links to third
-          party data policies and opt out forms.
+          Tableau: Consists of seven columns of cards. The first column has one
+          card, the second has two, and so on, with each column having one more
+          card than the last. Only the top card of each pile is face-up.
         </li>
         <li>
-          SEP 12, 2018: Privacy page is now HTML and added opt out links for
-          various advertisers.
-        </li>
-        <li>AUG 31, 2018: The Facebook like button has been removed.</li>
-        <li>
-          MAY 22, 2018: I now use Freestar as the ad provider now. I also use
-          Google Analytics. I also now set a cookie to help save your options
-          for future visits.
+          Stockpiles: Contains the remaining cards not in the tableau; usually
+          there are 24.
         </li>
         <li>
-          JAN 01, 2018: If in the future the entire website is transferred to a
-          new owner, the user database would be included in the transfer as part
-          of the "entire website".
+          Waste Pile: Cards from the stockpile are usually placed here if they
+          are not to be used.
         </li>
         <li>
-          FEB 03, 2015: If I receive an official court ordered subpoena for user
-          information, under United States law I will be required to give out
-          the requested user information.
+          Foundation Piles: Four piles where you build sequences of each suit
+          from Ace to King.
         </li>
       </ul>
+      <div
+        style={{
+          marginTop: '2rem',
+          margin: '2rem auto 0 auto',
+          maxWidth: '700px',
+          width: '100%',
+        }}
+      >
+        <Image
+          src={About1}
+          alt='Solitaire Ace game setup'
+          style={{
+            width: '100%',
+            height: 'auto',
+          }}
+        />
+      </div>
+      <div style={{ marginTop: '2.75rem' }}>
+        <h4
+          className={styles.text}
+          style={{
+            fontWeight: 700,
+          }}
+        >
+          Gameplay and Rules
+        </h4>
+        <ol className={styles.list}>
+          <li>
+            Move Cards in the Tableau: You can move face-up cards to other
+            tableau columns if they are of the opposite color and a rank lower.
+          </li>
+        </ol>
+        <div
+          style={{
+            marginTop: '2rem',
+            margin: '2rem auto 0 auto',
+            maxWidth: '700px',
+            width: '100%',
+          }}
+        >
+          <Image
+            src={About2}
+            alt='Solitaire Ace Gameplay and Rules'
+            style={{
+              width: '100%',
+              height: 'auto',
+            }}
+          />
+        </div>
+      </div>
+      <div style={{ marginTop: '2.75rem' }}>
+        <ol className={styles.list} start={2}>
+          <li>
+            Use the Stock and Waste Piles: Draw cards from the stockpile, moving
+            unused ones to the waste pile.
+          </li>
+        </ol>
+        <div
+          style={{
+            marginTop: '2rem',
+            margin: '2rem auto 0 auto',
+            maxWidth: '324px',
+            width: '100%',
+          }}
+        >
+          <Image
+            src={About3}
+            alt='Solitaire Ace Use the Stock and Waste Piles'
+            style={{
+              width: '100%',
+              height: 'auto',
+            }}
+          />
+        </div>
+      </div>
+      <div style={{ marginTop: '2.75rem' }}>
+        <ol className={styles.list} start={3}>
+          <li>
+            Empty Columns: Only Kings can be placed in empty tableau columns.
+          </li>
+        </ol>
+        <div
+          style={{
+            marginTop: '2rem',
+            margin: '2rem auto 0 auto',
+            maxWidth: '700px',
+            width: '100%',
+          }}
+        >
+          <Image
+            src={About4}
+            alt='Solitaire Ace Empty Columns'
+            style={{
+              width: '100%',
+              height: 'auto',
+            }}
+          />
+        </div>
+      </div>
+      <div style={{ marginTop: '2.75rem' }}>
+        <ol className={styles.list} start={4}>
+          <li>
+            Foundation Piles: Start each with an Ace, then place cards of the
+            same suit in ascending order.
+          </li>
+        </ol>
+        <div
+          style={{
+            marginTop: '2rem',
+            margin: '2rem auto 0 auto',
+            maxWidth: '700px',
+            width: '100%',
+          }}
+        >
+          <Image
+            src={About5}
+            alt='Solitaire Ace Foundation Piles'
+            style={{
+              width: '100%',
+              height: 'auto',
+            }}
+          />
+        </div>
+      </div>
+      <div style={{ marginTop: '2.75rem' }}>
+        <h5
+          className={styles.text}
+          style={{
+            fontWeight: 700,
+          }}
+        >
+          Strategies for Winning
+        </h5>
+        <ul className={styles.list}>
+          <li>Focus on revealing cards in the bigger tableau columns first.</li>
+          <li>Use the first stockpile card wisely to start the game.</li>
+          <li>If stuck, consider using cards from the foundation piles.</li>
+          <li>
+            Aim to clear a tableau column if you have a King to place there.
+          </li>
+          <li>
+            Utilize hints and undo if available in the game version you are
+            playing.
+          </li>
+        </ul>
+        <p className={styles.text}>&nbsp;</p>
+        <h6
+          className={styles.text}
+          style={{
+            fontWeight: 700,
+          }}
+        >
+          Frequently Asked Questions
+        </h6>
+        <ul className={styles.list}>
+          <li>
+            <span
+              style={{
+                fontWeight: 700,
+              }}
+            >
+              Winning Difficulty:
+            </span>
+            <br />
+            Based on past game data, we calculated about 34% for Turn 1 games
+            and 12% for Turn 3 games.
+          </li>
+          <li>
+            <span
+              style={{
+                fontWeight: 700,
+              }}
+            >
+              Turn 1 vs Turn 3:
+            </span>
+            <br />
+            Turn 1 flips one card at a time from the stock, whereas Turn 3 flips
+            three, making it more challenging.
+          </li>
+        </ul>
+        <p className={styles.text}>&nbsp;</p>
+        <p className={styles.text}>
+          This guide provides a basic understanding of Solitaire. For a more
+          interactive learning experience, consider watching tutorial videos or
+          playing online versions that offer hints and step-by-step guidance.
+        </p>
+      </div>
     </div>
   );
 };

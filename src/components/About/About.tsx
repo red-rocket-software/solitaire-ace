@@ -8,9 +8,12 @@ const About = () => {
       <p className={styles.text}>&nbsp;</p>
       <p className={styles.text}>
         Welcome to SolitaireAce.com, the brainchild of our founder and
-        visionary, Soli Chen. A leading platform in the online gaming world,
-        SolitaireAce.com is a testament to Steve's passion for card games and
-        his knack for creating engaging digital experiences.
+        visionary, Soli Chen.
+      </p>
+      <p className={styles.text}>
+        A leading platform in the online gaming world, SolitaireAce.com is a
+        testament to Steve's passion for card games and his knack for creating
+        engaging digital experiences.
       </p>
       <p className={styles.text}>
         Soli's journey with SolitaireAce.com began in the early 2020s. An avid
@@ -56,8 +59,11 @@ const About = () => {
       </p>
       <p className={styles.text}>
         Soli is committed to maintaining his position as a leader in the online
-        gaming industry. Thank you for being part of our journey. We hope you
-        enjoy playing solitaire as much as we enjoy bringing it to you.
+        gaming industry.
+      </p>
+      <p className={styles.text}>
+        Thank you for being part of our journey. We hope you enjoy playing
+        solitaire as much as we enjoy bringing it to you.
       </p>
       <p className={styles.text}>
         Welcome to SolitaireAce.com - your ace in the game!

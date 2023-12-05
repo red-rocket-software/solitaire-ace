@@ -29,7 +29,7 @@ const Cookies = () => {
           </li>
           <li>
             Cookies We Set
-            <ul className={styles.list} style={{listStyle:"disc"}}>
+            <ul className={styles.list} style={{ listStyle: 'disc' }}>
               <li>
                 Site preferences cookies: To provide you with a great experience
                 on this site, we provide the functionality to set your
