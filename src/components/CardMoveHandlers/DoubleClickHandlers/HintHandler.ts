@@ -1,7 +1,7 @@
 import { Dispatch } from "redux";
 import gameBoardActions from '@/redux/gameBoard/gameBoard.actions';
 import goalActions from '@/redux/goal/goal.actions';
-import  columnsActions  from '@/redux/columns/columns.actions';
+import columnsActions from '@/redux/columns/columns.actions';
 import { CardType } from "@/redux/gameBoard/gameBoard.types";
 import { ExplicitAny } from "@/global";
 
@@ -15,6 +15,7 @@ class HintHandler {
   deckPile: Array<CardType>;
   flippedPile: Array<CardType>;
   previousHints: Array<Record<string, string>>;
+  noMovesEvent: () => void;
 
   constructor(
     dispatch: Dispatch,
@@ -22,7 +23,8 @@ class HintHandler {
     goals: Record<string, Array<CardType>>,
     deckPile: Array<CardType>,
     flippedPile: Array<CardType>,
-    previousHints: Array<Record<string, string>>
+    previousHints: Array<Record<string, string>>,
+    noMovesEvent: () => void
   ) {
     this.dispatch = dispatch;
     this.columns = columns;
@@ -30,6 +32,7 @@ class HintHandler {
     this.deckPile = deckPile;
     this.flippedPile = flippedPile;
     this.previousHints = previousHints;
+    this.noMovesEvent = noMovesEvent;
   }
 
   /**
@@ -79,6 +82,7 @@ class HintHandler {
     movementWithFlip?: boolean,
     hintSource?: string
   ) {
+    console.log('hint')
     // if the move to a column was valid (result is the target column id) and the card moving field is the same as the columnId
     if (typeof columnMoveTarget === "string" && hintSource) {
       // add a hint
@@ -103,6 +107,7 @@ class HintHandler {
       //   message: "No more hints to give",
       //   duration: 5
       // });
+      this.noMovesEvent();
     }
     return true;
   }

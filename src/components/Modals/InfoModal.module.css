@@ -1,0 +1,116 @@
+.title,
+.description {
+  color: #000;
+  font-family: var(--font-roboto-fingtree);
+  font-style: normal;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 24px;
+  margin-bottom: 28px;
+}
+
+.description {
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 30px;
+  margin-bottom: 37px;
+}
+
+.actionBtn {
+  cursor: pointer;
+  border: none;
+  outline: none;
+  padding: 15px 0px;
+  border-radius: 30.5px;
+  box-shadow: 0px 7px 24px 0px rgba(0, 0, 0, 0.1);
+
+  text-align: center;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  min-width: 135px;
+  width: fit-content;
+}
+
+.default {
+  background: #fff;
+  color: #58595b;
+}
+
+.primary {
+  background: #702daf;
+  color: #fff;
+}
+
+.gameSwitchModalContainer {
+  max-width: 540px;
+}
+
+.gameSwitchControls {
+  display: grid;
+  grid-template-columns: auto auto;
+  justify-content: flex-end;
+  gap: 17px;
+}
+
+.stuckInMovesControls {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.stuckInMovesSubControls {
+  display: grid;
+  grid-template-columns: auto auto;
+  justify-content: flex-end;
+  gap: 11px;
+}
+
+.default:hover,
+.default:active {
+  background: #efefef;
+}
+
+.primary:hover,
+.primary:active {
+  background: #5d2591;
+}
+
+@media (max-width: 600px) {
+  .inlineMobile {
+    display: inline-grid;
+  }
+  .title {
+    font-size: 20px;
+    margin-bottom: 16px;
+  }
+  .description {
+    font-size: 16px;
+    margin-bottom: 24px;
+  }
+  .gameSwitchControls,
+  .stuckInMovesSubControls {
+    justify-content: center;
+    gap: 14px;
+    width: 100%;
+  }
+
+  .desktopOnly {
+    display: none;
+  }
+}
+
+@media (max-width: 375px) {
+  .actionBtn {
+    min-width: auto;
+    padding: 15px 13px;
+  }
+  .gameSwitchControls,
+  .stuckInMovesSubControls {
+    justify-content: space-between;
+  }
+}

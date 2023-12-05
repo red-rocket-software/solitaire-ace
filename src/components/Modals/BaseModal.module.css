@@ -1,0 +1,40 @@
+.baseModal {
+  display: flex;
+  overflow: hidden;
+  position: absolute;
+  top: 50% !important;
+  left: 50% !important;
+  transform: translate(-50%, -50%) !important;
+  outline-style: none;
+  width: calc(100% - 20px);
+  height: fit-content;
+  max-height: 90vh;
+  background: #eae9ec;
+  border-radius: 20px;
+}
+
+.baseModalChildren {
+  padding-bottom: 30px;
+  padding-top: 40px;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+.closeBtn {
+  position: absolute;
+  top: 24px;
+  right: 26px;
+}
+
+@media(max-width: 600px) {
+  .baseModalChildren {
+    padding-bottom: 40px;
+    padding-top: 56px;
+    padding-left: 41px;
+    padding-right: 41px;
+  }
+  .bloseBtn {
+    top: 20px;
+    right: 20px;
+  }
+}

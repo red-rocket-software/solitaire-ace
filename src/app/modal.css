@@ -1,0 +1,23 @@
+.ReactModal__Body--open {
+  overflow: hidden !important;
+}
+
+/* ===== Scrollbar CSS ===== */
+
+.ReactModal__Content * {
+  scrollbar-width: thin;
+  scrollbar-color: #9fa2b4 #eef0f3;
+}
+
+/* Chrome, Edge, and Safari */
+.ReactModal__Content *::-webkit-scrollbar {
+  @apply w-1 rounded-md h-1;
+}
+
+.ReactModal__Content *::-webkit-scrollbar-track {
+  @apply w-1 h-1 bg-table-border-gray rounded-md;
+}
+
+.ReactModal__Content *::-webkit-scrollbar-thumb {
+  @apply rounded-md bg-table-header-text border border-solid border-table-border-gray;
+}

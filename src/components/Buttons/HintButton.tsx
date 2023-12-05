@@ -5,10 +5,13 @@ import HintHandler from '../CardMoveHandlers/DoubleClickHandlers/HintHandler';
 import DoubleClickHandler from '../CardMoveHandlers/DoubleClickHandlers/DoubleClickHandler.component';
 import styles from './Buttons.module.css';
 import HintIcon from '@/icons/HintIcon';
+import StuckInMovesModal from '../Modals/StuckInMovesModal';
+import { useState } from 'react';
 
 function HintButton() {
-  const dispatch = useDispatch();
+  const [showNoMovesModal, setShowNoMovesModal] = useState<boolean>(false);
 
+  const dispatch = useDispatch();
   const { columns, goals, deckPile, flippedPile, gameHints, nHints } =
     useSelector(({ Deck, Columns, Goal, GameBoard }: RootReducerState) => {
       return {
@@ -24,6 +27,10 @@ function HintButton() {
   // create copy of the flipped pile to then send it reversed to the handler
   const flippedCopy = [...flippedPile];
 
+  const onNoModevLeft = () => {
+    setShowNoMovesModal(true);
+  };
+
   // create the hint handler
   const handler = new HintHandler(
     dispatch,
@@ -31,16 +38,23 @@ function HintButton() {
     goals,
     deckPile,
     flippedCopy.reverse(),
-    gameHints
+    gameHints,
+    onNoModevLeft
   );
   // return the button with the double click handler and wrapped in a badge with the current number of hints given
   return (
-    <DoubleClickHandler handler={handler} doubleClick={false}>
-      <button className={styles.actionButton}>
-        <HintIcon />
-        <p>Hint</p>
-      </button>
-    </DoubleClickHandler>
+    <>
+      <DoubleClickHandler handler={handler} doubleClick={false}>
+        <button className={styles.actionButton}>
+          <HintIcon />
+          <p>Hint</p>
+        </button>
+      </DoubleClickHandler>
+      <StuckInMovesModal
+        showModal={showNoMovesModal}
+        onClose={() => setShowNoMovesModal(false)}
+      />
+    </>
   );
 }
 

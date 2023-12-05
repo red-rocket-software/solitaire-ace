@@ -10,6 +10,8 @@ import DropHandler from '@/components/CardMoveHandlers/DropHandlers/DropHandler.
 import BoardEmptySpots from '@/components/BoardFields/BaseEmptySpots';
 import CustomDragLayer from '../CardMoveHandlers/DragHandlers/CustomDragLayer.component';
 import styles from './GameBoard.module.css';
+import GameSwitchModal from '../Modals/GameSwitchModal';
+import StuckInMovesModal from '../Modals/StuckInMovesModal';
 
 function GameBoard() {
   const dispatch = useDispatch();

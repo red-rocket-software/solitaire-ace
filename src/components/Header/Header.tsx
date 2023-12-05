@@ -16,8 +16,17 @@ import { GameModeTypes } from '@/redux/gameConfig/gameConfig.types';
 import { useRouter } from 'next/navigation';
 import useTimer from '@/hooks/useTimer';
 import Link from 'next/link';
+import GameSwitchModal from '../Modals/GameSwitchModal';
+import { useState } from 'react';
 
 const Header = () => {
+  const [showGameSwitchModal, setShowGameSwitchModal] = useState<{
+    showModal: boolean;
+    gameMode?: GameModeTypes;
+  }>({
+    showModal: false,
+  });
+
   const router = useRouter();
   const { gameMode, gameMoves } = useSelector(
     ({ GameConfig, GameBoard }: RootReducerState) => ({
@@ -27,10 +36,6 @@ const Header = () => {
   );
 
   const { seconds, minutes, hours } = useTimer();
-
-  const showUnsavedWarning = () => {
-    return confirm('You have unsaved changes');
-  };
 
   const navigateToOtherGameMode = (gameMode: GameModeTypes) => {
     if (gameMode === 'turnThree') {
@@ -48,9 +53,26 @@ const Header = () => {
       navigateToOtherGameMode(newMode);
       return;
     }
-    if (showUnsavedWarning()) {
-      navigateToOtherGameMode(newMode);
+    setShowGameSwitchModal({
+      showModal: true,
+      gameMode: newMode,
+    });
+  };
+
+  const onConfirmGameSwitch = () => {
+    if (!showGameSwitchModal.gameMode) {
+      hideModal();
+      return;
     }
+    navigateToOtherGameMode(showGameSwitchModal.gameMode);
+    hideModal();
+  };
+
+  const hideModal = () => {
+    setShowGameSwitchModal({
+      showModal: false,
+      gameMode: undefined,
+    });
   };
 
   const getCardModeColor = (btnMode: GameModeTypes) => {
@@ -61,51 +83,73 @@ const Header = () => {
   };
 
   return (
-    <header className={styles.header}>
-      <div className={styles.innerWrapper}>
-        <div className={styles.logoDesctopWrapper}>
-          <Link href='/'>
-            <Image
-              src='/images/logo.png'
-              width={120}
-              height={31}
-              alt='logo'
-              style={{ marginRight: '45px' }}
-              className={styles.logo}
-            />
-          </Link>
-        </div>
-        <div className={styles.logoMobileWrapper}>
-          <Link href='/'>
-            <Image
-              src='/images/logo.png'
-              width={100}
-              height={30}
-              alt='logo'
-              style={{ marginRight: '11px' }}
-              className={styles.logo}
-            />
-          </Link>
-        </div>
-        <div className={styles.cards}>
-          <div
-            className={styles.cardWrapper}
-            onClick={() => onChangeGameMode('default')}
-          >
-            <TurnOne fill={getCardModeColor('default')} />
+    <>
+      <header className={styles.header}>
+        <div className={styles.innerWrapper}>
+          <div className={styles.logoDesctopWrapper}>
+            <Link href='/'>
+              <Image
+                src='/images/logo.png'
+                width={120}
+                height={31}
+                alt='logo'
+                style={{ marginRight: '45px' }}
+                className={styles.logo}
+              />
+            </Link>
           </div>
-          <div className={styles.border} />
-          <div
-            className={styles.cardWrapper}
-            onClick={() => onChangeGameMode('turnThree')}
-          >
-            <TurnThree fill={getCardModeColor('turnThree')} />
+          <div className={styles.logoMobileWrapper}>
+            <Link href='/'>
+              <Image
+                src='/images/logo.png'
+                width={100}
+                height={30}
+                alt='logo'
+                style={{ marginRight: '11px' }}
+                className={styles.logo}
+              />
+            </Link>
+          </div>
+          <div className={styles.cards}>
+            <div
+              className={styles.cardWrapper}
+              onClick={() => onChangeGameMode('default')}
+            >
+              <TurnOne fill={getCardModeColor('default')} />
+            </div>
+            <div className={styles.border} />
+            <div
+              className={styles.cardWrapper}
+              onClick={() => onChangeGameMode('turnThree')}
+            >
+              <TurnThree fill={getCardModeColor('turnThree')} />
+            </div>
+          </div>
+          <div className={styles.newButtonWrapper}>
+            <NewButton />
+          </div>
+          <div className={styles.desktopInfoButton}>
+            <GamePlayInfo seconds={seconds} hours={hours} minutes={minutes} />
+            <RestartButton />
+            <div
+              style={{ margin: '0 3.5px', height: '28.4px' }}
+              className={styles.border}
+            />
+            <UndoButton />
+            <div
+              style={{ margin: '0 3.5px', height: '28.4px' }}
+              className={styles.border}
+            />
+            <PauseButton />
+            <div
+              style={{ margin: '0 3.5px', height: '28.4px' }}
+              className={styles.border}
+            />
+            <HintButton />
           </div>
         </div>
-        <div className={styles.newButtonWrapper}>
-          <NewButton />
-        </div>
-        <div className={styles.desktopInfoButton}>
+        <div className={styles.borderBottom} />
+        <div className={styles.mobileInfoButton}>
           <GamePlayInfo seconds={seconds} hours={hours} minutes={minutes} />
           <RestartButton />
           <div
@@ -124,28 +168,13 @@ const Header = () => {
           />
           <HintButton />
         </div>
-      </div>
-      <div className={styles.borderBottom} />
-      <div className={styles.mobileInfoButton}>
-        <GamePlayInfo seconds={seconds} hours={hours} minutes={minutes} />
-        <RestartButton />
-        <div
-          style={{ margin: '0 3.5px', height: '28.4px' }}
-          className={styles.border}
-        />
-        <UndoButton />
-        <div
-          style={{ margin: '0 3.5px', height: '28.4px' }}
-          className={styles.border}
-        />
-        <PauseButton />
-        <div
-          style={{ margin: '0 3.5px', height: '28.4px' }}
-          className={styles.border}
-        />
-        <HintButton />
-      </div>
-    </header>
+      </header>
+      <GameSwitchModal
+        showModal={showGameSwitchModal.showModal}
+        onClose={hideModal}
+        onConfirm={onConfirmGameSwitch}
+      />
+    </>
   );
 };
 
