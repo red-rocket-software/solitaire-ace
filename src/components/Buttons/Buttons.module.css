@@ -19,6 +19,7 @@
   transition: all 0.3s;
   border: 1px solid transparent;
   border-radius: 20px;
+  scale: 0.8;
 }
 
 .newButton:hover {
@@ -75,5 +76,9 @@
     display: block;
     margin-left: 4.5px;
     margin-bottom: 0;
+  }
+
+  .newButton {
+    scale: initial;
   }
 }
