@@ -82,6 +82,24 @@
   animation-iteration-count: infinite;
 }
 
+@keyframes increase {
+  0% {
+    transform: scale(1);
+  }
+  25% {
+    transform: scale(1.05);
+  }
+  50% {
+    transform: scale(1);
+  }
+  75% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
 /*  CardImage */
 .cardDefault {
   border: var(--cardMobileBorderWidth) solid #000500;

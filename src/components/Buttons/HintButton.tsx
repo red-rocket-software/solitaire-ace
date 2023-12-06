@@ -27,7 +27,7 @@ function HintButton() {
   // create copy of the flipped pile to then send it reversed to the handler
   const flippedCopy = [...flippedPile];
 
-  const onNoModevLeft = () => {
+  const onNoModeLeft = () => {
     setShowNoMovesModal(true);
   };
 
@@ -39,7 +39,7 @@ function HintButton() {
     deckPile,
     flippedCopy.reverse(),
     gameHints,
-    onNoModevLeft
+    onNoModeLeft
   );
   // return the button with the double click handler and wrapped in a badge with the current number of hints given
   return (
