@@ -55,7 +55,6 @@ function DraggableCard({
       isDragging: monitor.isDragging(),
     }),
     end: (_, monitor) => {
-      console.log('monitor.getDropResult()', monitor.getDropResult());
       if (!monitor.getDropResult()) {
         dispatch(goalActions.resetCardDragging());
         // then reset the values at the deck redux
