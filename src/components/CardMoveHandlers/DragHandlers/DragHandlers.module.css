@@ -78,6 +78,24 @@
   height: 100%;
 }
 
+@media screen and (min-width: 1440px) and (max-height: 800px) {
+  .dragLayer {
+    width: 62%;
+  }
+}
+
+@media screen and (min-width: 1600px) and (max-height: 900px) {
+  .dragLayer {
+    width: 55%;
+  }
+}
+
+@media screen and (min-width: 1800px) and (max-height: 1000px) {
+  .dragLayer {
+    width: 55%;
+  }
+}
+
 @media (not (orientation: portrait)) and (max-height: 450px) {
   .dragLayer {
     width: 50%;

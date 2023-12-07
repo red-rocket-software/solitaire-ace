@@ -81,6 +81,13 @@ function GameBoard() {
 
   useEffect(mountGameBoard, []);
 
+  useEffect(() => {
+    // clear game state on unmount
+    return () => {
+      dispatch(gameBoardActions.clearGameBoard());
+    };
+  }, []);
+
   /**
    * Triggered when the deck pile changes (and therefore, all the other columns and goals as well)
    * Distributes the decks *created* to the right redux

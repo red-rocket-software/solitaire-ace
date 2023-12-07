@@ -1,16 +1,17 @@
 // Game Board Actions
 const GameBoardActionTypes = {
-  CREATE_GAME: "GAME/CREATE_GAME",
-  SET_INITIAL_GAME: "GAME/SET_INITIAL_GAME",
-  TOGGLE_GAME_FLAG: "GAME/TOGGLE_GAME_FLAG",
-  TIME_GAME: "GAME/TIME_GAME",
-  SAVE_GAME_TIME: "GAME/SAVE_GAME_TIME",
-  SHOWING_CONFIRM: "GAME/SHOWING_CONFIRM",
-  ADD_GAME_HINT: "GAME/ADD_GAME_HINT",
-  CLEAR_GAME_HINT: "GAME/CLEAR_GAME_HINT",
-  ADD_GAME_MOVE: "GAME/ADD_GAME_MOVE",
-  REMOVE_GAME_MOVE: "GAME/REMOVE_GAME_MOVE",
-  RE_ADD_GAME_MOVE: "GAME/RE_ADD_GAME_MOVE"
+  CREATE_GAME: 'GAME/CREATE_GAME',
+  SET_INITIAL_GAME: 'GAME/SET_INITIAL_GAME',
+  TOGGLE_GAME_FLAG: 'GAME/TOGGLE_GAME_FLAG',
+  TIME_GAME: 'GAME/TIME_GAME',
+  SAVE_GAME_TIME: 'GAME/SAVE_GAME_TIME',
+  SHOWING_CONFIRM: 'GAME/SHOWING_CONFIRM',
+  ADD_GAME_HINT: 'GAME/ADD_GAME_HINT',
+  CLEAR_GAME_HINT: 'GAME/CLEAR_GAME_HINT',
+  ADD_GAME_MOVE: 'GAME/ADD_GAME_MOVE',
+  REMOVE_GAME_MOVE: 'GAME/REMOVE_GAME_MOVE',
+  RE_ADD_GAME_MOVE: 'GAME/RE_ADD_GAME_MOVE',
+  CLEAR_GAME_BOARD: 'GAME/CLEAR_GAME_BOARD',
 };
 
 // number of the initial cards of each field of the game
@@ -22,14 +23,14 @@ export const cardsConfigurations = {
   column4: 4,
   column5: 5,
   column6: 6,
-  column7: 7
+  column7: 7,
 };
 
 // type of a card
 export interface CardType {
   id: number; // 0 to 51 (number of cards)
   image: string; // image associated with the card
-  cardColor: "red" | "black"; // color of the suit
+  cardColor: 'red' | 'black'; // color of the suit
   cardSuit: string; // suit of the card (hearts, diamonds, clubs and spades)
   cardNumber: number; // actual number of the card, goes from 1 to 13
   cardField: string; // current field the card is in (deck, goal or column)
