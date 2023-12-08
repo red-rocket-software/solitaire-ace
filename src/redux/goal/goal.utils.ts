@@ -1,5 +1,5 @@
-import { CardType } from "../gameBoard/gameBoard.types";
-import { ExplicitAny } from "../../global";
+import { CardType } from '../gameBoard/gameBoard.types';
+import { ExplicitAny } from '../../global';
 
 // ********************************************************
 // HELPER FUNCTIONS
@@ -43,7 +43,7 @@ export const isValidMovement = (firstCard: CardType, finalCard?: CardType) => {
 export const swapGoals = (
   goals: Record<string, Array<CardType>>,
   cardsDragging: Array<CardType> = [],
-  initialId = "goal1Pile",
+  initialId = 'goal1Pile',
   finalId: string
 ) => {
   // create copy of the goal pile the cards come from
@@ -70,9 +70,9 @@ export const swapGoals = (
       goals: {
         ...goals,
         [finalId]: finalGoal,
-        [initialId]: initialGoal
+        [initialId]: initialGoal,
       },
-      sendBack: false
+      sendBack: false,
     };
   }
 
@@ -84,7 +84,7 @@ export const swapGoals = (
   return {
     sendBack: true,
     cardDragging: undefined,
-    cardDraggingGoal: undefined
+    cardDraggingGoal: undefined,
   };
 };
 
@@ -112,7 +112,7 @@ export const undoSwapGoals = (
 
   // return the changes made in the initial and final goal
   return {
-    goals: { ...goals, [initialId]: initialGoal, [finalId]: finalGoal }
+    goals: { ...goals, [initialId]: initialGoal, [finalId]: finalGoal },
   };
 };
 
@@ -135,7 +135,7 @@ export const setCardDragging = (
 
   return {
     cardDragging: [cardDragging],
-    cardDraggingGoal: goalId
+    cardDraggingGoal: goalId,
   };
 };
 
@@ -168,13 +168,13 @@ export const addDragginCardsToGoal = (
     return {
       goals: { ...goals, [finalId]: finalGoal },
       sendBack: false,
-      gameOver
+      gameOver,
     };
   }
 
   // since the movement was invalid, it is necessary to send the card back to the correct place
   return {
-    sendBack: true
+    sendBack: true,
   };
 };
 
@@ -217,10 +217,10 @@ export const addCardToGoal = (
   return {
     goals: {
       ...goals,
-      [goalId]: goal
+      [goalId]: goal,
     },
     doubleClickTarget: undefined,
-    gameOver: isGameOver(goals, goalId)
+    gameOver: isGameOver(goals, goalId),
   };
 };
 
@@ -241,8 +241,8 @@ export const removeCardFromGoal = (
   return {
     goals: {
       ...goals,
-      [goalId]: goal
-    }
+      [goalId]: goal,
+    },
   };
 };
 
@@ -294,7 +294,7 @@ export const checkDoubleClickValid = (
   // if there is no valid target goal, toggle the doubleClickTarget
   // if there is a valid target goal, save its id
   return {
-    doubleClickTarget: targetId === undefined ? !doubleClickTarget : targetId
+    doubleClickTarget: targetId === undefined ? !doubleClickTarget : targetId,
   };
 };
 
@@ -324,7 +324,7 @@ export const checkGoalSwapDoubleClickValid = (
   // if there is a valid target goal, then save it, the cards that were swapped and the respective goals final result
   return {
     doubleClickTarget: targetId === undefined ? !doubleClickTarget : targetId,
-    ...swapResult
+    ...swapResult,
   };
 };
 
@@ -338,15 +338,34 @@ export const checkMoveFromAnyColumns = (
   // for each column
   const firstValidMoveAvailable = Object.keys(columns).find(
     (columnId: string) => {
-      // get the first flipped card
-      const firstFlippedCard = columns[columnId].find(
-        (card: CardType) => card.flipped
+      // get the first flipped card in flippedPile
+      if (columnId === 'flippedPile') {
+        const firstCardInFlippedPile = columns.flippedPile.find(
+          (card: CardType) => card.flipped
+        );
+        // if it is not undefined
+        if (firstCardInFlippedPile) {
+          validTargetResult = getValidTarget(
+            goals,
+            firstCardInFlippedPile,
+            previousHints
+          );
+          return validTargetResult !== undefined;
+        }
+      }
+      // get the last flipped card in column[n]Pile
+      const flippedCardsInColumn = columns[columnId].filter(
+        (card) => card.flipped
       );
+      // get the last(top) flipped card in column[n]Pile
+      const lastFlippedCardInColumn =
+        flippedCardsInColumn[flippedCardsInColumn.length - 1];
+
       // if it is not undefined
-      if (firstFlippedCard) {
+      if (lastFlippedCardInColumn) {
         validTargetResult = getValidTarget(
           goals,
-          firstFlippedCard,
+          lastFlippedCardInColumn,
           previousHints
         );
         return validTargetResult !== undefined;
@@ -363,6 +382,6 @@ export const checkMoveFromAnyColumns = (
     hintSource:
       firstValidMoveAvailable === undefined
         ? undefined
-        : firstValidMoveAvailable
+        : firstValidMoveAvailable,
   };
 };

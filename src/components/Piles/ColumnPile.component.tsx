@@ -41,6 +41,7 @@ function ColumnPile({ offset, columnCards, columnId }: ColumnPileProps) {
           card,
           nCards
         );
+          //TODO fix animation
         const shake =
           lastHint &&
           (card.cardField === lastHint.source ||
