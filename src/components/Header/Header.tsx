@@ -13,7 +13,7 @@ import HintButton from '../Buttons/HintButton';
 import { useSelector } from 'react-redux';
 import { RootReducerState } from '@/global';
 import { GameModeTypes } from '@/redux/gameConfig/gameConfig.types';
-import { useRouter } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 import useTimer from '@/hooks/useTimer';
 import Link from 'next/link';
 import GameSwitchModal from '../Modals/GameSwitchModal';
@@ -28,6 +28,10 @@ const Header = () => {
   });
 
   const router = useRouter();
+  const path = usePathname();
+
+  const isGamePath = path === '/' || path === '/turn-3';
+
   const { gameMode, gameMoves } = useSelector(
     ({ GameConfig, GameBoard }: RootReducerState) => ({
       gameMode: GameConfig.gameMode as GameModeTypes,
@@ -84,8 +88,14 @@ const Header = () => {
 
   return (
     <>
-      <header className={styles.header}>
-        <div className={styles.innerWrapper}>
+      <header className={isGamePath ? styles.gameHeader : styles.header}>
+        <div
+          className={
+            isGamePath
+              ? styles.innerWrapper
+              : `${styles.innerWrapper} ${styles.height}`
+          }
+        >
           <div className={styles.logoDesctopWrapper}>
             <Link href='/'>
               <Image
@@ -110,7 +120,7 @@ const Header = () => {
               />
             </Link>
           </div>
-          <div className={styles.cards}>
+          <div className={isGamePath ? styles.cards : styles.hidden}>
             <div
               className={styles.cardWrapper}
               onClick={() => onChangeGameMode('default')}
@@ -125,10 +135,12 @@ const Header = () => {
               <TurnThree fill={getCardModeColor('turnThree')} />
             </div>
           </div>
-          <div className={styles.newButtonWrapper}>
+          <div className={isGamePath ? styles.newButtonWrapper : styles.hidden}>
             <NewButton />
           </div>
-          <div className={styles.desktopInfoButton}>
+          <div
+            className={isGamePath ? styles.desktopInfoButton : styles.hidden}
+          >
             <GamePlayInfo seconds={seconds} hours={hours} minutes={minutes} />
             <RestartButton />
             <div
@@ -148,8 +160,8 @@ const Header = () => {
             <HintButton />
           </div>
         </div>
-        <div className={styles.borderBottom} />
-        <div className={styles.mobileInfoButton}>
+        <div className={isGamePath ? styles.borderBottom : styles.hidden} />
+        <div className={isGamePath ? styles.mobileInfoButton : styles.hidden}>
           <GamePlayInfo seconds={seconds} hours={hours} minutes={minutes} />
           <RestartButton />
           <div

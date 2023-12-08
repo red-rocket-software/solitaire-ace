@@ -1,5 +1,5 @@
-import { ExplicitAny, ValueOf } from "../../global";
-import GameBoardActionTypes, { GameMove } from "./gameBoard.types";
+import { ExplicitAny, ValueOf } from '../../global';
+import GameBoardActionTypes, { GameMove } from './gameBoard.types';
 
 // ********************************************************
 // INITIAL SETTINGS ACTIONS
@@ -8,12 +8,12 @@ import GameBoardActionTypes, { GameMove } from "./gameBoard.types";
  * Creates an initial distribution of the cards
  */
 const createGame = () => ({
-  type: GameBoardActionTypes.CREATE_GAME
+  type: GameBoardActionTypes.CREATE_GAME,
 });
 
 const setInitialSavedGame = (savedGame: ExplicitAny) => ({
   type: GameBoardActionTypes.SET_INITIAL_GAME,
-  savedGame
+  savedGame,
 });
 
 // ********************************************************
@@ -23,14 +23,14 @@ const setInitialSavedGame = (savedGame: ExplicitAny) => ({
  * Toggles the game flag to reset the game
  */
 const toggleGameFlag = () => ({
-  type: GameBoardActionTypes.TOGGLE_GAME_FLAG
+  type: GameBoardActionTypes.TOGGLE_GAME_FLAG,
 });
 
 /**
  * Pauses and Resumes the game
  */
 const timeGame = () => ({
-  type: GameBoardActionTypes.TIME_GAME
+  type: GameBoardActionTypes.TIME_GAME,
 });
 
 /**
@@ -38,12 +38,12 @@ const timeGame = () => ({
  */
 const saveGameTime = (time: number) => ({
   type: GameBoardActionTypes.SAVE_GAME_TIME,
-  time
+  time,
 });
 
 const showingConfirm = (showingConfirm: boolean) => ({
   type: GameBoardActionTypes.SHOWING_CONFIRM,
-  showingConfirm
+  showingConfirm,
 });
 
 /**
@@ -52,12 +52,13 @@ const showingConfirm = (showingConfirm: boolean) => ({
 const addGameHint = (source?: string, target?: string) => ({
   type: GameBoardActionTypes.ADD_GAME_HINT,
   source,
-  target
+  target,
 });
 
 const clearGameHint = () => ({
   type: GameBoardActionTypes.CLEAR_GAME_HINT,
-})
+});
+
 // ********************************************************
 // GAME MOVES' HISTORY ACTIONS
 
@@ -70,21 +71,28 @@ const clearGameHint = () => ({
  */
 const addGameMove = (move: GameMove) => ({
   type: GameBoardActionTypes.ADD_GAME_MOVE,
-  move
+  move,
 });
 
 /**
  * Removes a move from the list of game moves
  */
 const removeGameMove = () => ({
-  type: GameBoardActionTypes.REMOVE_GAME_MOVE
+  type: GameBoardActionTypes.REMOVE_GAME_MOVE,
 });
 
 /**
  * Adds a move that was redone to the list of game moves
  */
 const reAddGameMove = () => ({
-  type: GameBoardActionTypes.RE_ADD_GAME_MOVE
+  type: GameBoardActionTypes.RE_ADD_GAME_MOVE,
+});
+
+/**
+ * Clear states
+ */
+const clearGameBoard = () => ({
+  type: GameBoardActionTypes.CLEAR_GAME_BOARD,
 });
 
 // ********************************************************
@@ -100,7 +108,8 @@ const actionsCreators = Object.freeze({
   addGameMove,
   clearGameHint,
   removeGameMove,
-  reAddGameMove
+  reAddGameMove,
+  clearGameBoard,
 });
 
 export type ActionsCreators = ReturnType<ValueOf<typeof actionsCreators>>;

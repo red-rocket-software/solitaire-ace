@@ -1,14 +1,14 @@
 /* eslint-disable indent */
-import GameBoardActionTypes, { CardType, GameMove } from "./gameBoard.types";
+import GameBoardActionTypes, { CardType, GameMove } from './gameBoard.types';
 import {
   addGameHint,
   addGameMove,
   createRandomGame,
   removeGameMove,
   resetGameStatus,
-  setInitialValues
-} from "./gameBoard.utils";
-import { ActionsCreators } from "./gameBoard.actions";
+  setInitialValues,
+} from './gameBoard.utils';
+import { ActionsCreators } from './gameBoard.actions';
 
 interface InitialGameBoard {
   // initial cards of each pile
@@ -64,7 +64,7 @@ const INITIAL_GAME_BOARD: InitialGameBoard = {
   showingConfirm: false,
   initialTime: 0,
   initialMoves: 0,
-  initialHints: 0
+  initialHints: 0,
 };
 
 const gameBoardReducer = (
@@ -81,7 +81,7 @@ const gameBoardReducer = (
     case GameBoardActionTypes.CREATE_GAME:
       return {
         ...createRandomGame(),
-        ...resetGameStatus(state.gameFlag, 0, 0, 0)
+        ...resetGameStatus(state.gameFlag, 0, 0, 0),
       };
 
     case GameBoardActionTypes.SET_INITIAL_GAME:
@@ -102,7 +102,7 @@ const gameBoardReducer = (
           state.initialTime,
           state.initialMoves,
           state.initialHints
-        )
+        ),
       };
 
     /**
@@ -150,7 +150,7 @@ const gameBoardReducer = (
 
       return {
         ...state,
-        ...addResult
+        ...addResult,
       };
 
     /**
@@ -158,8 +158,8 @@ const gameBoardReducer = (
      */
     case GameBoardActionTypes.REMOVE_GAME_MOVE:
       const removeResult = removeGameMove(
-        "gamePreviousMoves",
-        "gameNextMoves",
+        'gamePreviousMoves',
+        'gameNextMoves',
         state.gamePreviousMoves,
         state.gameNextMoves,
         state.gameMoves
@@ -171,14 +171,16 @@ const gameBoardReducer = (
      */
     case GameBoardActionTypes.RE_ADD_GAME_MOVE:
       const reAddResult = removeGameMove(
-        "gameNextMoves",
-        "gamePreviousMoves",
+        'gameNextMoves',
+        'gamePreviousMoves',
         state.gameNextMoves,
         state.gamePreviousMoves,
         state.gameMoves
       );
       return { ...state, ...reAddResult };
 
+    case GameBoardActionTypes.CLEAR_GAME_BOARD:
+      return INITIAL_GAME_BOARD;
     // ********************************************************
 
     default:
