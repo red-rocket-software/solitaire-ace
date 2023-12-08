@@ -145,6 +145,7 @@ const DropHandler = ({
     } else if (sendBackGoal === true) {
       GoalInstance.handleSendBack();
     }
+    setFieldDropedTo(undefined);
   };
   useEffect(handleSendBack, [sendBackColumn, sendBackGoal]);
 
