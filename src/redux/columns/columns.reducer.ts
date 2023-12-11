@@ -10,11 +10,11 @@ import {
   removeNCardsFromColumn,
   setCardDragging,
   swapColumns,
-  undoSwapColumns
-} from "./columns.utils";
-import { ActionsCreators } from "./columns.actions";
-import { CardType } from "../gameBoard/gameBoard.types";
-import ColumnsActionTypes from "./columns.types";
+  undoSwapColumns,
+} from './columns.utils';
+import { ActionsCreators } from './columns.actions';
+import { CardType } from '../gameBoard/gameBoard.types';
+import ColumnsActionTypes from './columns.types';
 
 export interface InitialColumns {
   columns: {
@@ -45,7 +45,7 @@ const INITIAL_COLUMNS: InitialColumns = {
     column4Pile: [],
     column5Pile: [],
     column6Pile: [],
-    column7Pile: []
+    column7Pile: [],
   },
   cardDragging: undefined,
   cardDraggingCol: undefined,
@@ -54,7 +54,7 @@ const INITIAL_COLUMNS: InitialColumns = {
   doubleClickTarget: undefined,
   hintSource: undefined,
   movingCards: undefined,
-  columnMoveSource: undefined
+  columnMoveSource: undefined,
 };
 
 const columnsReducer = (state = INITIAL_COLUMNS, action: ActionsCreators) => {
@@ -72,7 +72,7 @@ const columnsReducer = (state = INITIAL_COLUMNS, action: ActionsCreators) => {
         columns: createColumns(action.columns, action.keepFlipped),
         cardDragging: undefined,
         cardDraggingCol: undefined,
-        sendBack: undefined
+        sendBack: undefined,
       };
 
     // ********************************************************
@@ -97,7 +97,7 @@ const columnsReducer = (state = INITIAL_COLUMNS, action: ActionsCreators) => {
       }
       // if the finalId is the same id of the cards that are being dragged,
       // then simply return the state, because no changes were caused
-      return {...state, sendBack: true};
+      return { ...state, sendBack: true };
 
     /**
      * Undo swap of columns, sends back nCards from the target column to the source column
@@ -132,7 +132,7 @@ const columnsReducer = (state = INITIAL_COLUMNS, action: ActionsCreators) => {
       );
       return {
         ...state,
-        ...draggingResult
+        ...draggingResult,
       };
 
     /**
@@ -151,7 +151,7 @@ const columnsReducer = (state = INITIAL_COLUMNS, action: ActionsCreators) => {
       );
       return {
         ...state,
-        ...addResult
+        ...addResult,
       };
 
     case ColumnsActionTypes.REMOVE_DRAGGED_CARDS_FROM_COLUMN:
@@ -161,7 +161,7 @@ const columnsReducer = (state = INITIAL_COLUMNS, action: ActionsCreators) => {
       );
       return {
         ...state,
-        ...removeResult
+        ...removeResult,
       };
 
     case ColumnsActionTypes.RESET_COLUMN_CARD_DRAGGING:
@@ -173,7 +173,7 @@ const columnsReducer = (state = INITIAL_COLUMNS, action: ActionsCreators) => {
         movementWithFlip: undefined,
         doubleClickTarget: undefined,
         movingCards: undefined,
-        columnMoveSource: undefined
+        columnMoveSource: undefined,
       };
 
     // ********************************************************
@@ -192,7 +192,7 @@ const columnsReducer = (state = INITIAL_COLUMNS, action: ActionsCreators) => {
       );
       return {
         ...state,
-        ...sendUndoResult
+        ...sendUndoResult,
       };
 
     /**
@@ -208,7 +208,7 @@ const columnsReducer = (state = INITIAL_COLUMNS, action: ActionsCreators) => {
       );
       return {
         ...state,
-        ...removeNCardsResult
+        ...removeNCardsResult,
       };
 
     // ********************************************************
@@ -257,7 +257,8 @@ const columnsReducer = (state = INITIAL_COLUMNS, action: ActionsCreators) => {
           ...state,
           ...swapColumnsDoubleClick,
           doubleClickTarget: undefined,
-          movingCards: undefined
+          movingCards: undefined,
+          sendBack: undefined,
         };
       }
       return state;

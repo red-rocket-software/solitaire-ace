@@ -1,9 +1,8 @@
-
-import { Dispatch } from "redux";
+import { Dispatch } from 'redux';
 import gameBoardActions from '@/redux/gameBoard/gameBoard.actions';
 import goalActions from '@/redux/goal/goal.actions';
-import  columnsActions  from '@/redux/columns/columns.actions';
-import { CardType } from "@/redux/gameBoard/gameBoard.types";
+import columnsActions from '@/redux/columns/columns.actions';
+import { CardType } from '@/redux/gameBoard/gameBoard.types';
 
 /**
  * Class for the goal pile double click handler
@@ -37,7 +36,10 @@ class GoalDoubleClickHandler {
    */
   handleColumnDoubleClickResult(columnMoveTarget?: string | boolean) {
     // if the move to a goal was valid (result is the target goal id)
-    if (typeof columnMoveTarget === "string") {
+    if (
+      typeof columnMoveTarget === 'string' &&
+      columnMoveTarget.includes('column')
+    ) {
       // remove card from goal
       this.dispatch(goalActions.removeCardFromGoal(this.goalId));
       // add removed card to the corresponding column
@@ -51,7 +53,7 @@ class GoalDoubleClickHandler {
           source: this.goalId,
           target: columnMoveTarget,
           cards: [this.card],
-          movementWithFlip: false
+          movementWithFlip: false,
         })
       );
       // sets the move as over
@@ -60,9 +62,7 @@ class GoalDoubleClickHandler {
     // if the move was not valid
     else {
       // check if it can go to another goal pile (and do the swapping as well)
-      this.dispatch(
-        goalActions.checkGoalSwapDoubleClickValid(this.goalId, this.card)
-      );
+      this.dispatch(goalActions.checkDoubleClickValid(this.card));
     }
   }
 
@@ -73,14 +73,17 @@ class GoalDoubleClickHandler {
    * @param goalMoveTarget check result for a goal pile
    */
   handleGoalDoubleClickResult(goalMoveTarget?: string | boolean) {
-    if (typeof goalMoveTarget === "string") {
+    if (typeof goalMoveTarget === 'string') {
+      this.dispatch(
+        goalActions.checkGoalSwapDoubleClickValid(this.goalId, this.card)
+      );
       // add game move
       this.dispatch(
         gameBoardActions.addGameMove({
           source: this.goalId,
           target: goalMoveTarget,
           cards: [this.card],
-          movementWithFlip: true
+          movementWithFlip: true,
         })
       );
     }

@@ -452,7 +452,7 @@ export const checkDoubleClickValid = (
 ) => {
   // get the first possible target column id
   const targetId = getValidTarget(columns, cardMoving);
-
+  
   // if there is no valid target column, toggle the doubleClickTarget
   // if there is a valid target column, save its id
   return {
