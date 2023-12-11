@@ -39,23 +39,24 @@ function DeckPile() {
     };
   });
 
-  // const cardsToRegisterInMove = () => {
-  //   //Register three card for turn 3 and one for default mode
-  //   return gameMode === 'turnThree' ? -3 : -1;
-  // };
+  const cardsToRegisterInMove = () => {
+    //Register three card for turn 3 and one for default mode
+    return gameMode === 'turnThree' ? -3 : -1;
+  };
 
   // swap from deck to flipped pile
   const handleDeckSwap = async (cardId: number) => {
     // wait for the css animation to end
     setTimeout(() => {
       dispatch(deckActions.flipDeckPile(gameMode));
+      // copy of deckPile array
+      const tempDeckPile = [...deckPile];
       // add one movement of the game
-
       dispatch(
         gameBoardActions.addGameMove({
           source: 'deckPile',
           target: 'flippedPile',
-          cards: [],
+          cards: tempDeckPile.splice(cardsToRegisterInMove()) || [],
         })
       );
     }, FLIP_ANIMATION_TIME_MS);
