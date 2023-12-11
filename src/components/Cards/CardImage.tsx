@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from './Card.module.css';
 import Image from 'next/image';
+import getImageByName from '@/utils/getCardImage';
 
 interface CardImageProps {
   image?: string;
@@ -32,8 +33,8 @@ const CardImage = ({
         priority
         draggable={false}
         className={styles.cardImage}
-        src={`/images/${directory}/${image}`}
-        alt=''
+        src={getImageByName(directory, image) || `/images/${directory}/${image}`}
+        alt=""
       />
     </div>
   );
