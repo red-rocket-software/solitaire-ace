@@ -1,6 +1,5 @@
 import type { Metadata, Viewport } from 'next';
 import { Inter, Figtree } from 'next/font/google';
-import 'antd/dist/antd.css';
 import './globals.css';
 import { Providers } from '@/redux/provider';
 import Provider from '@/components/Provider';

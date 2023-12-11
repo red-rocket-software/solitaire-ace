@@ -23,6 +23,8 @@
   --game-container-width: 70%; /* 1280px */
 }
 
+@import 'antd/dist/antd.css';
+
 * {
   box-sizing: border-box;
   padding: 0;
