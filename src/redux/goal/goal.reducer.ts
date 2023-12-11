@@ -8,11 +8,11 @@ import {
   removeCardFromGoal,
   setCardDragging,
   swapGoals,
-  undoSwapGoals
-} from "./goal.utils";
-import { ActionsCreators } from "./goal.actions";
-import { CardType } from "../gameBoard/gameBoard.types";
-import GoalActionTypes from "./goal.types";
+  undoSwapGoals,
+} from './goal.utils';
+import { ActionsCreators } from './goal.actions';
+import { CardType } from '../gameBoard/gameBoard.types';
+import GoalActionTypes from './goal.types';
 
 export interface InitialGoal {
   goals: {
@@ -35,14 +35,14 @@ const INITIAL_GOAL: InitialGoal = {
     goal1Pile: [],
     goal2Pile: [],
     goal3Pile: [],
-    goal4Pile: []
+    goal4Pile: [],
   },
   cardDragging: undefined,
   cardDraggingGoal: undefined,
   sendBack: undefined,
   doubleClickTarget: undefined,
   hintSource: undefined,
-  gameOver: false
+  gameOver: false,
 };
 
 const goalReducer = (state = INITIAL_GOAL, action: ActionsCreators) => {
@@ -63,7 +63,7 @@ const goalReducer = (state = INITIAL_GOAL, action: ActionsCreators) => {
         sendBack: undefined,
         doubleClickTarget: undefined,
         hintSource: undefined,
-        gameOver: false
+        gameOver: false,
       };
 
     // ********************************************************
@@ -107,7 +107,7 @@ const goalReducer = (state = INITIAL_GOAL, action: ActionsCreators) => {
       const draggingResult = setCardDragging(state.goals, action.goalId);
       return {
         ...state,
-        ...draggingResult
+        ...draggingResult,
       };
 
     /**
@@ -124,9 +124,10 @@ const goalReducer = (state = INITIAL_GOAL, action: ActionsCreators) => {
         action.finalId,
         action.cardDragging
       );
+
       return {
         ...state,
-        ...addResult
+        ...addResult,
       };
 
     /**
@@ -139,7 +140,7 @@ const goalReducer = (state = INITIAL_GOAL, action: ActionsCreators) => {
         cardsDragging: undefined,
         cardDraggingGoal: undefined,
         doubleClickTarget: !state.doubleClickTarget,
-        gameOver: false
+        gameOver: false,
       };
 
     // ********************************************************
@@ -157,7 +158,7 @@ const goalReducer = (state = INITIAL_GOAL, action: ActionsCreators) => {
       );
       return {
         ...state,
-        ...sendUndoResult
+        ...sendUndoResult,
       };
 
     /**
@@ -167,7 +168,7 @@ const goalReducer = (state = INITIAL_GOAL, action: ActionsCreators) => {
       const removeCardResult = removeCardFromGoal(state.goals, action.goalId);
       return {
         ...state,
-        ...removeCardResult
+        ...removeCardResult,
       };
 
     // ********************************************************
@@ -197,12 +198,17 @@ const goalReducer = (state = INITIAL_GOAL, action: ActionsCreators) => {
     case GoalActionTypes.CHECK_GOAL_SWAP_DOUBLE_CLICK_VALID:
       const checkGoalSwapDoubleClickResult = checkGoalSwapDoubleClickValid(
         state.goals,
-        action.goalId,
+        action.sourceId,
         action.card,
         state.doubleClickTarget
       );
 
-      return { ...state, ...checkGoalSwapDoubleClickResult };
+      return {
+        ...state,
+        ...checkGoalSwapDoubleClickResult,
+        doubleClickTarget: undefined, // TODO Check if this cleaning is necessary or not
+        sendBack: undefined, // TODO clear checkGoalSwapDoubleClickResult state,  don't need this because it triggers when use double-click
+      };
 
     case GoalActionTypes.CHECK_MOVE_FROM_ANY_COLUMN:
       const checkMoveFromColumnsResult = checkMoveFromAnyColumns(

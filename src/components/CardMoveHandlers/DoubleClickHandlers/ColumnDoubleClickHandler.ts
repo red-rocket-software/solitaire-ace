@@ -1,11 +1,11 @@
-import  columnsActions  from '@/redux/columns/columns.actions';
+import columnsActions from '@/redux/columns/columns.actions';
 import gameBoardActions from '@/redux/gameBoard/gameBoard.actions';
 import goalActions from '@/redux/goal/goal.actions';
 
-import { CardType } from "@/redux/gameBoard/gameBoard.types";
-import { Dispatch } from "redux";
+import { CardType } from '@/redux/gameBoard/gameBoard.types';
+import { Dispatch } from 'redux';
 
-import { ExplicitAny } from "@/global";
+import { ExplicitAny } from '@/global';
 
 /**
  * Class for the column pile double click handler
@@ -62,7 +62,7 @@ class ColumnDoubleClickHandler {
     columns: ExplicitAny = {}
   ) {
     // if the move to a goal was valid (result is the target goal id)
-    if (typeof goalMoveTarget === "string") {
+    if (typeof goalMoveTarget === 'string') {
       const copy = [...columns[this.columnId]];
       const cardIndex = copy.length - 2;
 
@@ -86,7 +86,7 @@ class ColumnDoubleClickHandler {
           source: this.columnId,
           target: goalMoveTarget,
           cards: [this.card],
-          movementWithFlip: finalMovementWithFlip
+          movementWithFlip: finalMovementWithFlip,
         })
       );
       // sets the move as over
@@ -119,7 +119,7 @@ class ColumnDoubleClickHandler {
   ) {
     // if the move to a column was valid (result is the target column id) and the card moving field is the same as the columnId
     if (
-      typeof columnMoveTarget === "string" &&
+      typeof columnMoveTarget === 'string' &&
       columnMoveCards &&
       columnMoveCards[0].cardField === this.columnId
     ) {
@@ -129,7 +129,7 @@ class ColumnDoubleClickHandler {
           source: this.columnId,
           target: columnMoveTarget,
           cards: columnMoveCards,
-          movementWithFlip
+          movementWithFlip,
         })
       );
 
