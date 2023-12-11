@@ -39,10 +39,10 @@ function DeckPile() {
     };
   });
 
-  const cardsToRegisterInMove = () => {
-    //Register three card for turn 3 and one for default mode
-    return gameMode === 'turnThree' ? -3 : -1;
-  };
+  // const cardsToRegisterInMove = () => {
+  //   //Register three card for turn 3 and one for default mode
+  //   return gameMode === 'turnThree' ? -3 : -1;
+  // };
 
   // swap from deck to flipped pile
   const handleDeckSwap = async (cardId: number) => {
@@ -50,11 +50,12 @@ function DeckPile() {
     setTimeout(() => {
       dispatch(deckActions.flipDeckPile(gameMode));
       // add one movement of the game
+
       dispatch(
         gameBoardActions.addGameMove({
           source: 'deckPile',
           target: 'flippedPile',
-          cards: deckPile.splice(cardsToRegisterInMove()) || [],
+          cards: [],
         })
       );
     }, FLIP_ANIMATION_TIME_MS);
