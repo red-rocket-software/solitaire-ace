@@ -1,0 +1,37 @@
+selectmedia.asia, 645b5a31e427dc0a87093fc3, DIRECT, e365c871a27c655d
+freewheel.tv, 144617, RESELLER, 74e8e47458f74754
+freewheel.tv, 144633, RESELLER, 74e8e47458f74754
+pubmatic.com, 157512, RESELLER, 5d62403b186f2ace
+google.com, pub-2930805104418204, RESELLER, f08c47fec0942fa0
+rubiconproject.com, 20598, RESELLER, 0bfd66d529a55807
+openx.com, 540786724, RESELLER, 6a698e2ec38604c6
+indexexchange.com, 191812, RESELLER, 50b1c356f2c5c8fc
+appnexus.com, 9684, RESELLER, f5ab79cb980f11d1
+google.com, pub-5717092533913515, RESELLER, f08c47fec0942fa0
+onetag.com, 74dcb2b8d077562, RESELLER
+supply.colossusssp.com, 365, RESELLER, 6c5b49d96ec1b458
+triplelift.com, 11397, RESELLER, 6c33edb13117fd86
+conversantmedia.com, 100357, RESELLER, 03113cd04947736d
+aps.amazon.com, 2161fdc2-157c-4dc8-be6d-a5f74dacc2ef, RESELLER
+google.com, pub-4903453974745530, RESELLER, f08c47fec0942fa0
+adform.com, 2919, RESELLER, 9f5210a2f0999e32
+adipolo.com, 22899272274, DIRECT
+Adipolosolutions.com, 22899272274, DIRECT
+sovrn.com, 322507, RESELLER, fafdf38b16bf6b2b
+lijit.com, 322507, RESELLER, fafdf38b16bf6b2b
+gannett.com, 22652786701, RESELLER
+themediagrid.com, 9GKBJC, RESELLER, 35d5010d7789b49d
+themediagrid.com, LGT2OY, RESELLER, 35d5010d7789b49d
+appnexus.com, 10490, RESELLER, f5ab79cb980f11d1
+freewheel.tv, 1451842, DIRECT
+freewheel.tv, 1451858, DIRECT
+google.com, pub-5862389829718358, RESELLER, f08c47fec0942fa0
+google.com, pub-9135355251665930, RESELLER, f08c47fec0942fa0
+appnexus.com, 12998, DIRECT, f5ab79cb980f11d1
+google.com, pub-4836542095728076, RESELLER, f08c47fec0942fa0
+9dotsmedia.com, 1392, DIRECT
+opamarketplace.com, 22899272274, DIRECT
+pmbmonetize.com, 22899272274, DIRECT
+smartadline.com, 22866437000, DIRECT
+aps.amazon.com, d4004b5f-4fb6-4be2-82ae-0e36b8f52c12, RESELLER
+aps.amazon.com, 00ed17ab-4189-4639-9d5e-15acd40affde, RESELLER
