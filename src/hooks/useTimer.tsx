@@ -41,7 +41,6 @@ const useTimer = () => {
       clearInterval(timerID);
     };
   });
-
   // when the timer flag is toggled, reset the timer
   useEffect(() => {
     if (gameTime === 0) {
@@ -50,7 +49,7 @@ const useTimer = () => {
       setHours(0);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [timerFlag]);
+  }, [timerFlag, gameTime]);
 
   // add one second, minute or hour accordingly
   function tick() {
